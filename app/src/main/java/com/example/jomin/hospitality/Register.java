@@ -9,6 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
@@ -26,7 +29,7 @@ public class Register extends ActionBarActivity {
         fullname = (EditText)findViewById(R.id.userInput_FullName);
         emailAddress = (EditText)findViewById(R.id.userInput_EmailAddress);
         password = (EditText)findViewById(R.id.userInput_Password);
-
+        retypePassword = (EditText)findViewById(R.id.userInput_RetypePassword);
         registerButton = (Button)findViewById(R.id.register_button);
 
         registerButton.setOnClickListener(new View.OnClickListener() {
@@ -36,10 +39,70 @@ public class Register extends ActionBarActivity {
                 String fullName = fullname.getText().toString();
                 String email = emailAddress.getText().toString();
                 String storepassword = password.getText().toString();
+                String storeretypepassword = retypePassword.getText().toString();
 
                 User user = new User(fullName, email, storepassword);
 
-                registerUser(user);
+                if (fullName.length() >0 && email.length() >0 && storepassword.length() >0 ) {
+
+                    if (isEmailValid(email) == true) {
+
+                        if (storepassword.matches(storepassword)) {
+                            registerUser(user);
+                        } else {
+                            new SweetAlertDialog(Register.this, SweetAlertDialog.ERROR_TYPE)
+                                    .setTitleText("Registration Failed")
+                                    .setContentText("Password does not match ")
+                                    .setConfirmText("Try Again !")
+                                    .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                        @Override
+                                        public void onClick(SweetAlertDialog sweetAlertDialog) {
+
+                                            Intent loginIntent = new Intent(Register.this, Register.class);
+                                            startActivity(loginIntent);
+
+                                        }
+                                    })
+                                    .show();
+                        }
+
+                    } else {
+                        new SweetAlertDialog(Register.this, SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText("Registration Failed")
+                                .setContentText("Email is not valid ")
+                                .setConfirmText("Try Again !")
+                                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                    @Override
+                                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+
+                                        Intent loginIntent = new Intent(Register.this, Register.class);
+                                        startActivity(loginIntent);
+
+                                    }
+                                })
+                                .show();
+                    }
+
+
+
+
+                } else {
+                    new SweetAlertDialog(Register.this, SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("Registration Failed")
+                            .setContentText("You need to enter all the fields")
+                            .setConfirmText("Try Again !")
+                            .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                @Override
+                                public void onClick(SweetAlertDialog sweetAlertDialog) {
+
+                                    Intent loginIntent = new Intent(Register.this, Register.class);
+                                    startActivity(loginIntent);
+
+                                }
+                            })
+                            .show();
+                }
+
 
 
 
@@ -71,6 +134,28 @@ public class Register extends ActionBarActivity {
 
             }
         });
+    }
+
+    //email validation check
+    public boolean isEmailValid(String email)
+    {
+        String regExpn =
+                "^(([\\w-]+\\.)+[\\w-]+|([a-zA-Z]{1}|[\\w-]{2,}))@"
+                        +"((([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                        +"[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\."
+                        +"([0-1]?[0-9]{1,2}|25[0-5]|2[0-4][0-9])\\.([0-1]?"
+                        +"[0-9]{1,2}|25[0-5]|2[0-4][0-9])){1}|"
+                        +"([a-zA-Z]+[\\w-]+\\.)+[a-zA-Z]{2,4})$";
+
+        CharSequence inputStr = email;
+
+        Pattern pattern = Pattern.compile(regExpn,Pattern.CASE_INSENSITIVE);
+        Matcher matcher = pattern.matcher(inputStr);
+
+        if(matcher.matches())
+            return true;
+        else
+            return false;
     }
 
 

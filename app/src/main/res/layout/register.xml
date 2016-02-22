@@ -35,71 +35,78 @@
         android:paddingTop="10dp"
         android:textStyle="bold" />
 
-    <LinearLayout
-        android:orientation="vertical"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="40dp"
-        android:layout_gravity="center_horizontal">
-
-        <EditText
-            android:id="@+id/userInput_FullName"
-            android:hint="Full Name"
-            android:maxLength="20"
-            android:textSize="20sp"
-            android:fontFamily="sans-serif-thin"
-            android:drawablePadding="7dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <EditText
-            android:id="@+id/userInput_EmailAddress"
-            android:hint="Email Address"
-            android:maxLength="20"
-            android:textSize="20sp"
-            android:fontFamily="sans-serif-thin"
-            android:drawablePadding="7dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <EditText
-            android:id="@+id/userInput_Password"
-            android:hint="Password"
-            android:maxLength="20"
-            android:inputType="textPassword"
-            android:textSize="20sp"
-            android:fontFamily="sans-serif-thin"
-            android:drawablePadding="7dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <EditText
-            android:id="@+id/userInput_RetypePassword"
-            android:hint="Re-type Password"
-            android:maxLength="20"
-            android:inputType="textPassword"
-            android:textSize="20sp"
-            android:fontFamily="sans-serif-thin"
-            android:drawablePadding="7dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <Button
-            android:id="@+id/register_button"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/login_button"
-            android:layout_marginTop="20dp" />
-
-
+        android:layout_height="match_parent"
+        android:id="@+id/scrollView" >
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_marginTop="20dp" >
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="40dp"
+            android:layout_gravity="center_horizontal">
 
+            <EditText
+                android:id="@+id/userInput_FullName"
+                android:hint="Full Name"
+                android:maxLength="20"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-thin"
+                android:drawablePadding="7dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/userInput_EmailAddress"
+                android:hint="Email Address"
+                android:maxLength="50"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-thin"
+                android:drawablePadding="7dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/userInput_Password"
+                android:hint="Password"
+                android:maxLength="20"
+                android:inputType="textPassword"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-thin"
+                android:drawablePadding="7dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <EditText
+                android:id="@+id/userInput_RetypePassword"
+                android:hint="Re-type Password"
+                android:maxLength="20"
+                android:inputType="textPassword"
+                android:textSize="20sp"
+                android:fontFamily="sans-serif-thin"
+                android:drawablePadding="7dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <Button
+                android:id="@+id/register_button"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/login_button"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="40dp" />
+
+
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="20dp" >
+
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
