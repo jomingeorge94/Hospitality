@@ -6,7 +6,7 @@
     tools:context=".MainActivity"
     android:baselineAligned="false"
     android:weightSum="1"
-    android:background="#ff1e5884">
+    android:background="@mipmap/background_colour">
 
     <LinearLayout
         android:orientation="vertical"
@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/imageView"
-            android:src="@mipmap/nhs_timeline" />
+            android:background="@mipmap/background_top" />
 
     </LinearLayout>
 

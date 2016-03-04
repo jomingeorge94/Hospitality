@@ -6,12 +6,12 @@
     tools:context=".MainActivity"
     android:baselineAligned="false"
     android:weightSum="1"
-    android:background="#ff1e5884">
+    android:background="@mipmap/background_colour">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="136dp"
+        android:layout_height="100dp"
         android:layout_marginTop="-7dp"
         android:weightSum="1">
 
@@ -19,7 +19,17 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/imageView"
-            android:src="@mipmap/nhs_timeline" />
+            android:src="@mipmap/background_top" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:weightSum="1"
+        android:layout_marginTop="-7dp"
+        android:baselineAligned="false">
 
     </LinearLayout>
 

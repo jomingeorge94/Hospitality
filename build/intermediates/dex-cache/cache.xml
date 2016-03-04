@@ -2,6 +2,13 @@
 <items version="2" >
 
     <item
+        jar="C:\xampp\htdocs\Hospitality\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\xampp\htdocs\Hospitality\app\build\intermediates\pre-dexed\debug\classes-306a20a002be644cdbd86fa11de8632a1260058d.jar" />
+    </item>
+    <item
         jar="C:\xampp\htdocs\Hospitality\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -21,13 +28,6 @@
         revision="21.1.2"
         sha1="57487745ce450899f9f250d5ae5c092a682cd041">
         <dex dex="C:\xampp\htdocs\Hospitality\app\build\intermediates\pre-dexed\debug\classes-7a48c8d1dacebb7ccf78fb04f9ae6fc9c8ebf956.jar" />
-    </item>
-    <item
-        jar="C:\xampp\htdocs\Hospitality\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="C:\xampp\htdocs\Hospitality\app\build\intermediates\pre-dexed\debug\classes-306a20a002be644cdbd86fa11de8632a1260058d.jar" />
     </item>
     <item
         jar="C:\xampp\htdocs\Hospitality\app\build\intermediates\exploded-aar\cn.pedant.sweetalert\library\1.3\classes.jar"

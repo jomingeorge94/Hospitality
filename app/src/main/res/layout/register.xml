@@ -6,12 +6,12 @@
     tools:context=".MainActivity"
     android:baselineAligned="false"
     android:weightSum="1"
-    android:background="#ff1e5884">
+    android:background="@mipmap/background_colour">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="136dp"
+        android:layout_height="100dp"
         android:layout_marginTop="-7dp"
         android:weightSum="1">
 
@@ -19,7 +19,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/imageView"
-            android:src="@mipmap/nhs_timeline" />
+            android:src="@mipmap/background_top" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:weightSum="1"
+        android:layout_marginTop="-7dp"
+        android:background="@mipmap/navigation_head_backbutton"
+        android:id="@+id/back_button">
 
     </LinearLayout>
 
@@ -38,7 +49,7 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/scrollView" >
+        android:id="@+id/scrollView">
 
         <LinearLayout
             android:orientation="vertical"
@@ -93,19 +104,11 @@
                 android:id="@+id/register_button"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/login_button"
                 android:layout_marginTop="20dp"
-                android:layout_marginBottom="40dp" />
+                android:layout_marginBottom="40dp"
+                android:background="@drawable/register_button" />
 
 
-
-            <LinearLayout
-                android:orientation="horizontal"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
-                android:layout_marginTop="20dp" >
-
-            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

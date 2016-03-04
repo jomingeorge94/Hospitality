@@ -44,6 +44,10 @@
             android:name=".Register"
             android:label="@string/sign_up" />
 
+        <activity
+            android:name=".ForgotPassword"
+            android:label="@string/forgot_password" />
+
 
 
     </application>

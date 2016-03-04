@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -19,6 +20,7 @@ public class Register extends ActionBarActivity {
 
     EditText fullname, emailAddress, password, retypePassword;
     Button registerButton;
+    LinearLayout goBack;
 
 
     @Override
@@ -31,6 +33,15 @@ public class Register extends ActionBarActivity {
         password = (EditText)findViewById(R.id.userInput_Password);
         retypePassword = (EditText)findViewById(R.id.userInput_RetypePassword);
         registerButton = (Button)findViewById(R.id.register_button);
+        goBack = (LinearLayout)findViewById(R.id.back_button);
+
+        goBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMain = new Intent(Register.this ,Login.class);
+                Register.this.startActivity(intentMain);
+            }
+        });
 
         registerButton.setOnClickListener(new View.OnClickListener() {
             @Override
