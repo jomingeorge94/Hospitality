@@ -32,13 +32,15 @@
         android:baselineAligned="false">
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="LOG OUT"
+            android:layout_width="32dp"
+            android:layout_height="match_parent"
             android:id="@+id/main_menu_logout"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="20dp"
-            android:layout_marginRight="130dp" />
+            android:background="@drawable/log_out"
+            android:layout_marginLeft="145dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp" />
     </LinearLayout>
 
     <ScrollView
