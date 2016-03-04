@@ -1,9 +1,12 @@
 package com.example.jomin.hospitality;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
@@ -11,10 +14,21 @@ public class ForgotPassword extends ActionBarActivity {
 
     TextView logOut;
     UserLocalDrive userLocalDrive;
+    LinearLayout goBack;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.forgot_password);
+
+        goBack = (LinearLayout)findViewById(R.id.back_button);
+
+        goBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMain = new Intent(ForgotPassword.this ,Login.class);
+                ForgotPassword.this.startActivity(intentMain);
+            }
+        });
 
     }
 

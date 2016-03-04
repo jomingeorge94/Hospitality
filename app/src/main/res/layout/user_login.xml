@@ -57,10 +57,11 @@
             android:maxLength="20"
             android:textSize="20sp"
             android:fontFamily="sans-serif-thin"
-            android:drawableLeft="@drawable/email_address"
+            android:drawableLeft="@drawable/email_icon"
             android:drawablePadding="7dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp">
             <requestFocus />
         </EditText>
         <EditText
@@ -70,10 +71,11 @@
             android:maxLength="20"
             android:textSize="20sp"
             android:fontFamily="sans-serif-thin"
-            android:drawableLeft="@drawable/password_lock"
-            android:drawablePadding="7dp"
+            android:drawableLeft="@drawable/password_lock_icon"
+            android:drawablePadding="20dp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp">
             <requestFocus />
         </EditText>
         <Button
