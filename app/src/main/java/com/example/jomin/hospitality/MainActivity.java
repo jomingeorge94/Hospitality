@@ -6,6 +6,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import cn.pedant.SweetAlert.SweetAlertDialog;
@@ -15,6 +16,7 @@ public class MainActivity extends ActionBarActivity {
 
     TextView logOut;
     UserLocalDrive userLocalDrive;
+    ImageView profile, service, remainder, appointments, callHelp, usefulLinks, sendFeedback, aboutApp;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,16 +55,18 @@ public class MainActivity extends ActionBarActivity {
                         })
                         .show();
 
+            }
+        });
 
 
-
-                /*userLocalDrive.clearUserData();
-                userLocalDrive.setUserLoggedIn(false);
+        profile = (ImageView)findViewById(R.id.user_profile);
 
 
-                Intent intentMain = new Intent(MainActivity.this ,Login.class);
-                MainActivity.this.startActivity(intentMain);*/
-
+        profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMain = new Intent(MainActivity.this ,Profile.class);
+                MainActivity.this.startActivity(intentMain);
             }
         });
 

@@ -48,6 +48,10 @@
             android:name=".ForgotPassword"
             android:label="@string/forgot_password" />
 
+        <activity
+            android:name=".Profile"
+            android:label="@string/user_profile" />
+
 
 
     </application>

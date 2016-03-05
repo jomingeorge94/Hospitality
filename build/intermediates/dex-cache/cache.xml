@@ -9,6 +9,13 @@
         <dex dex="C:\xampp\htdocs\Hospitality\app\build\intermediates\pre-dexed\debug\classes-306a20a002be644cdbd86fa11de8632a1260058d.jar" />
     </item>
     <item
+        jar="C:\xampp\htdocs\Hospitality\app\build\intermediates\exploded-aar\com.shehabic.droppy\Droppy\0.5.1\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="50d30f0059d5475be23994686357cfcd3e085c40">
+        <dex dex="C:\xampp\htdocs\Hospitality\app\build\intermediates\pre-dexed\debug\classes-3b06926587bb4e74e21138384ab7639f345097b8.jar" />
+    </item>
+    <item
         jar="C:\xampp\htdocs\Hospitality\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
         jumboMode="false"
         revision="21.1.2"
