@@ -31,17 +31,6 @@ public class Profile extends ActionBarActivity {
         });
 
 
-
-
-
-
-
-
-
-
-
-
-
     }
 
     @Override
