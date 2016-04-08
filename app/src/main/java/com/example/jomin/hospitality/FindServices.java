@@ -27,6 +27,7 @@ public class FindServices extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intentMain = new Intent(FindServices.this , MyMap.class);
+                intentMain.putExtra("SERVICE", "HOSPITAL");
                 FindServices.this.startActivity(intentMain);
             }
         });
