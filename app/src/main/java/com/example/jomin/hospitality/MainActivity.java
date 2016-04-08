@@ -2,7 +2,7 @@ package com.example.jomin.hospitality;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
+import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,7 +12,7 @@ import android.widget.TextView;
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
-public class MainActivity extends ActionBarActivity {
+public class MainActivity extends FragmentActivity {
 
     TextView logOut;
     String email;
@@ -68,6 +68,16 @@ public class MainActivity extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 Intent intentMain = new Intent(MainActivity.this ,Profile.class);
+                MainActivity.this.startActivity(intentMain);
+            }
+        });
+
+        final ImageView find = (ImageView)findViewById(R.id.find_service);
+
+        find.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMain = new Intent(MainActivity.this ,FindServices.class);
                 MainActivity.this.startActivity(intentMain);
             }
         });

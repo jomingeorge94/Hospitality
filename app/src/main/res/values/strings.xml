@@ -9,4 +9,6 @@
     <string name="sign_up">Sign-Up</string>
     <string name="user_profile">Profile</string>
     <string name="hospitality">Hospitality</string>
+    <string name="map">Map</string>
+    <string name="find">Find Services</string>
 </resources>

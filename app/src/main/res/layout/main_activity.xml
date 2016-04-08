@@ -132,4 +132,139 @@
         </LinearLayout>
     </ScrollView>
 
+    <LinearLayout
+        tools:context=".MainActivity"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:baselineAligned="false"
+        android:weightSum="1"
+        android:background="@mipmap/background_colour"
+        android:layout_gravity="right">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="60dp"
+            android:weightSum="1"
+            android:layout_marginTop="-7dp"
+            android:baselineAligned="false" >
+
+            <TextView
+                android:layout_width="32dp"
+                android:layout_height="match_parent"
+                android:id="@+id/textView4"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/log_out"
+                android:layout_marginLeft="145dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginRight="10dp" />
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/scrollView3" >
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView"
+                        android:background="@drawable/profile"
+                        android:layout_marginLeft="30dp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView10"
+                        android:background="@drawable/services"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="30dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginTop="20dp" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView11"
+                        android:background="@drawable/remainder"
+                        android:layout_marginLeft="30dp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView12"
+                        android:background="@drawable/appointments"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginTop="20dp" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView13"
+                        android:background="@drawable/callhelp"
+                        android:layout_marginLeft="30dp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView14"
+                        android:background="@drawable/useful_links"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="30dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:orientation="horizontal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:layout_marginTop="20dp"
+                    android:paddingBottom="40dp" >
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView15"
+                        android:background="@drawable/send_feedback"
+                        android:layout_marginLeft="30dp" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/imageView16"
+                        android:background="@drawable/about_the_app"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="30dp"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
 </LinearLayout>

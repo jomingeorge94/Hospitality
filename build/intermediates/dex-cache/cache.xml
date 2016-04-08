@@ -2,11 +2,18 @@
 <items version="2" >
 
     <item
-        jar="C:\xampp\htdocs\Hospitality\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jar="C:\xampp\htdocs\Hospitality\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\8.3.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
-        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
-        <dex dex="C:\xampp\htdocs\Hospitality\app\build\intermediates\pre-dexed\debug\classes-306a20a002be644cdbd86fa11de8632a1260058d.jar" />
+        sha1="77f9593d979f4347344be233bd0d888315f79517">
+        <dex dex="C:\xampp\htdocs\Hospitality\app\build\intermediates\pre-dexed\debug\classes-cfbb87e1028aadb0cc774b8ebf2b709aa443d6c0.jar" />
+    </item>
+    <item
+        jar="C:\xampp\htdocs\Hospitality\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\libs\internal_impl-22.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="57f2ab85c164ff1676ec64dee787981c046fab79">
+        <dex dex="C:\xampp\htdocs\Hospitality\app\build\intermediates\pre-dexed\debug\internal_impl-22.2.0-942be957b232027993a89328ea226cd70d3aa5c2.jar" />
     </item>
     <item
         jar="C:\xampp\htdocs\Hospitality\app\build\intermediates\exploded-aar\com.shehabic.droppy\Droppy\0.5.1\classes.jar"
@@ -16,20 +23,6 @@
         <dex dex="C:\xampp\htdocs\Hospitality\app\build\intermediates\pre-dexed\debug\classes-3b06926587bb4e74e21138384ab7639f345097b8.jar" />
     </item>
     <item
-        jar="C:\xampp\htdocs\Hospitality\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\libs\internal_impl-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="01ec05bfbafcc07646ba813000bf2ef11742dd03">
-        <dex dex="C:\xampp\htdocs\Hospitality\app\build\intermediates\pre-dexed\debug\internal_impl-21.0.3-f9799f9bb0d2add7f5c118171724cc307add5167.jar" />
-    </item>
-    <item
-        jar="C:\Users\Jomin\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\21.0.3\support-annotations-21.0.3.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="4b74cefe1f0c1b819e7260c8627a14674e37fd35">
-        <dex dex="C:\xampp\htdocs\Hospitality\app\build\intermediates\pre-dexed\debug\support-annotations-21.0.3-6740347bfaed074f5c74c94e092b134ff8e3371b.jar" />
-    </item>
-    <item
         jar="C:\xampp\htdocs\Hospitality\app\build\intermediates\exploded-aar\com.pnikosis\materialish-progress\1.0\classes.jar"
         jumboMode="false"
         revision="21.1.2"
@@ -37,18 +30,46 @@
         <dex dex="C:\xampp\htdocs\Hospitality\app\build\intermediates\pre-dexed\debug\classes-7a48c8d1dacebb7ccf78fb04f9ae6fc9c8ebf956.jar" />
     </item>
     <item
+        jar="C:\xampp\htdocs\Hospitality\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.3.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="01a90bbb9495a8bbf6f3cfdf12f1b35caaa9524b">
+        <dex dex="C:\xampp\htdocs\Hospitality\app\build\intermediates\pre-dexed\debug\classes-be3442ddaad9b47397c94ec0aef8bd0c01cefd7b.jar" />
+    </item>
+    <item
+        jar="C:\xampp\htdocs\Hospitality\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\21.0.3\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="81d42bf983a8741f4888a6e333e454e4a5e0eeb7">
+        <dex dex="C:\xampp\htdocs\Hospitality\app\build\intermediates\pre-dexed\debug\classes-306a20a002be644cdbd86fa11de8632a1260058d.jar" />
+    </item>
+    <item
+        jar="C:\Users\Jomin\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\22.2.0\support-annotations-22.2.0.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="66b42a1f3eb7676070b7ef7f14b603483aecbee1">
+        <dex dex="C:\xampp\htdocs\Hospitality\app\build\intermediates\pre-dexed\debug\support-annotations-22.2.0-1f4a493d03ee9d5c8f9a43f0bbad619ddc75f329.jar" />
+    </item>
+    <item
+        jar="C:\xampp\htdocs\Hospitality\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.3.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="345a1b5cf5b144ce18ba6962bc66a7e2f26c1c1b">
+        <dex dex="C:\xampp\htdocs\Hospitality\app\build\intermediates\pre-dexed\debug\classes-7b1778611afefbb49687e411205a0c7adf8311a9.jar" />
+    </item>
+    <item
+        jar="C:\xampp\htdocs\Hospitality\app\build\intermediates\exploded-aar\com.android.support\support-v4\22.2.0\classes.jar"
+        jumboMode="false"
+        revision="21.1.2"
+        sha1="1ee588ff2c4daf7b97c1cbf922a6c7f027285c2f">
+        <dex dex="C:\xampp\htdocs\Hospitality\app\build\intermediates\pre-dexed\debug\classes-81336933a240e4eb906a83d5524de0e023e7d441.jar" />
+    </item>
+    <item
         jar="C:\xampp\htdocs\Hospitality\app\build\intermediates\exploded-aar\cn.pedant.sweetalert\library\1.3\classes.jar"
         jumboMode="false"
         revision="21.1.2"
         sha1="0c3529d9491be892952749d252ae1defa9b1f937">
         <dex dex="C:\xampp\htdocs\Hospitality\app\build\intermediates\pre-dexed\debug\classes-67ca287db8f6891d0fb2676cf9abfecd257871f3.jar" />
-    </item>
-    <item
-        jar="C:\xampp\htdocs\Hospitality\app\build\intermediates\exploded-aar\com.android.support\support-v4\21.0.3\classes.jar"
-        jumboMode="false"
-        revision="21.1.2"
-        sha1="2c91c949a45a21cdecf26e03951e46c7beec9ad8">
-        <dex dex="C:\xampp\htdocs\Hospitality\app\build\intermediates\pre-dexed\debug\classes-229c78c79279d98708a36fee8742b091bc845586.jar" />
     </item>
 
 </items>
