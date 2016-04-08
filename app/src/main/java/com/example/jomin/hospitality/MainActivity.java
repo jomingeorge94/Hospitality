@@ -15,6 +15,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 public class MainActivity extends ActionBarActivity {
 
     TextView logOut;
+    String email;
     UserLocalDrive userLocalDrive;
     ImageView profile, service, remainder, appointments, callHelp, usefulLinks, sendFeedback, aboutApp;
     @Override
@@ -60,6 +61,7 @@ public class MainActivity extends ActionBarActivity {
 
 
         profile = (ImageView)findViewById(R.id.user_profile);
+
 
 
         profile.setOnClickListener(new View.OnClickListener() {

@@ -5,7 +5,7 @@ package com.example.jomin.hospitality;
  */
 public class User {
 
-    String fullname, emailaddress, password;
+    String fullname, emailaddress, password, gender;
 
     public User(String name,String email, String password) {
         this.fullname = name;
@@ -17,5 +17,12 @@ public class User {
         this.emailaddress = email;
         this.password = password;
         this.fullname = "";
+    }
+
+    public User(String name,String email, String password, String gender) {
+        this.fullname = name;
+        this.emailaddress = email;
+        this.password = password;
+        this.gender = gender;
     }
 }

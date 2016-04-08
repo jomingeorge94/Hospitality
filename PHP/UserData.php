@@ -9,7 +9,7 @@
     mysqli_stmt_execute($statement);
 
     mysqli_stmt_store_result($statement);
-    mysqli_stmt_bind_result($statement, $ID, $fullname, $email, $password, $created_at);
+    mysqli_stmt_bind_result($statement, $ID, $fullname, $email, $password, $gender, $created_at);
 
     $user = array();
 
@@ -17,6 +17,7 @@
         $user["name"] = $fullname;
         $user["emailaddress"] = $email;
         $user["password"] = $password;
+        $user["gender"] = $gender;
     }
 
     echo json_encode($user);

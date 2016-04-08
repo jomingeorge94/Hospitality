@@ -10,6 +10,7 @@ import org.apache.http.HttpResponse;
 import org.apache.http.NameValuePair;
 import org.apache.http.client.HttpClient;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.message.BasicNameValuePair;
@@ -25,7 +26,7 @@ import java.util.ArrayList;
 public class ServerRequests  extends ActionBarActivity {
     ProgressDialog progressDialog;
     public static final int CONNECTION_TIMEOUT = 1000 * 15;
-    public static final String SERVER_ADDRESS = "http://1d2c6a21.ngrok.io/hospitality/PHP/";
+    public static final String SERVER_ADDRESS = "http://dc6ae394.ngrok.io/hospitality/PHP/";
 
     public ServerRequests(Context context) {
 
@@ -40,9 +41,83 @@ public class ServerRequests  extends ActionBarActivity {
         new StoreUserDataAsyncTask(user, userCallBack).execute();
     }
 
+    public void postUserDataInBackground(User user,GetUserCallback userCallBack) {
+        progressDialog.show();
+        new postUserDataAsyncTask(user, userCallBack).execute();
+    }
+
     public void fetchUserDataAsyncTask(User user, GetUserCallback userCallBack) {
         progressDialog.show();
         new fetchUserDataAsyncTask(user, userCallBack).execute();
+    }
+
+    public void getUserProfile(GetUserCallback userCallBack, String email){
+        progressDialog.show();
+        new getUserProfileDataAsyncTask(userCallBack, email).execute();
+    }
+
+    public class getUserProfileDataAsyncTask extends AsyncTask<Void, Void, User> {
+        User user;
+        GetUserCallback userCallBack;
+        String email;
+
+        public getUserProfileDataAsyncTask( GetUserCallback userCallBack, String email) {
+            this.userCallBack = userCallBack;
+            this.email = email;
+        }
+
+        @Override
+        protected User doInBackground(Void... params) {
+            ArrayList<NameValuePair> dataToSend = new ArrayList<>();
+
+
+            HttpParams httpRequestParams = getHttpRequestParams();
+
+            HttpClient client = new DefaultHttpClient(httpRequestParams);
+            HttpGet get = new HttpGet(SERVER_ADDRESS + "profile.php?email=" + email);
+
+
+
+
+            try {
+                get.setParams(httpRequestParams);
+
+                HttpResponse httpResponse = client.execute(get);
+
+                HttpEntity entity = httpResponse.getEntity();
+                String result = EntityUtils.toString(entity);
+                JSONObject jObject = new JSONObject(result);
+
+                if (jObject.length() != 0){
+                    String name = jObject.getString("name");
+                    String emailaddress = jObject.getString("emailaddress");
+                    String password = jObject.getString("password");
+                    String gender = jObject.getString("gender");
+                    user = new User(name,emailaddress,password, gender );
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return user;
+        }
+
+        private HttpParams getHttpRequestParams() {
+            HttpParams httpRequestParams = new BasicHttpParams();
+            HttpConnectionParams.setConnectionTimeout(httpRequestParams,
+                    CONNECTION_TIMEOUT);
+            HttpConnectionParams.setSoTimeout(httpRequestParams,
+                    CONNECTION_TIMEOUT);
+            return httpRequestParams;
+        }
+
+        @Override
+        protected void onPostExecute(User returnedUser) {
+            super.onPostExecute(returnedUser);
+            progressDialog.dismiss();
+            userCallBack.done(returnedUser);
+        }
+
     }
 
     /**
@@ -140,7 +215,8 @@ public class ServerRequests  extends ActionBarActivity {
                     String name = jObject.getString("name");
                     String emailaddress = jObject.getString("emailaddress");
                     String password = jObject.getString("password");
-                    returnedUser = new User(name,emailaddress,password );
+                    String gender = jObject.getString("gender");
+                    returnedUser = new User(name,emailaddress,password, gender );
                 }
 
             } catch (Exception e) {
@@ -157,4 +233,54 @@ public class ServerRequests  extends ActionBarActivity {
             userCallBack.done(returnedUser);
         }
     }
+
+    public class postUserDataAsyncTask extends AsyncTask<Void, Void, Void> {
+        User user;
+        GetUserCallback userCallBack;
+
+        public postUserDataAsyncTask(User user, GetUserCallback userCallBack) {
+            this.user = user;
+            this.userCallBack = userCallBack;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            ArrayList<NameValuePair> dataToSend = new ArrayList<>();
+            dataToSend.add(new BasicNameValuePair("gender", user.gender));
+            dataToSend.add(new BasicNameValuePair("email", user.emailaddress));
+           // dataToSend.add(new BasicNameValuePair("language", user.languyage));
+            // dataToSend.add(new BasicNameValuePair("contact", user.contact));
+
+            HttpParams httpRequestParams = new BasicHttpParams();
+            HttpConnectionParams.setConnectionTimeout(httpRequestParams,
+                    CONNECTION_TIMEOUT);
+            HttpConnectionParams.setSoTimeout(httpRequestParams,
+                    CONNECTION_TIMEOUT);
+
+            HttpClient client = new DefaultHttpClient(httpRequestParams);
+            HttpPost post = new HttpPost(SERVER_ADDRESS + "ProfilePost.php");
+
+            try {
+                post.setEntity(new UrlEncodedFormEntity(dataToSend));
+                HttpResponse httpResponse = client.execute(post);
+
+                HttpEntity entity = httpResponse.getEntity();
+
+                if (httpResponse.getStatusLine().getStatusCode() == 200)
+                    return null;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void v) {
+            progressDialog.dismiss();
+            userCallBack.done(null);
+        }
+    }
+
 }

@@ -2,6 +2,7 @@ package com.example.jomin.hospitality;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
@@ -86,6 +87,8 @@ public class Login extends ActionBarActivity {
         userLocalDrive.storeUserData(returnedUser);
         userLocalDrive.setUserLoggedIn(true);
 
+        final User user = returnedUser;
+
         /*new SweetAlertDialog(Login.this, SweetAlertDialog.SUCCESS_TYPE)
                 .setTitleText("Successfully Logged in !")
                 .setConfirmText("Ok")
@@ -98,7 +101,7 @@ public class Login extends ActionBarActivity {
                 })
                 .show();*/
 
-
+        final SharedPreferences sp = getSharedPreferences("GLOB", MODE_PRIVATE);
 
         SweetAlertDialog pDialog = new SweetAlertDialog(this, SweetAlertDialog.PROGRESS_TYPE);
         pDialog.getProgressHelper().setBarColor(Color.parseColor("#A5DC86"));
@@ -106,7 +109,9 @@ public class Login extends ActionBarActivity {
         pDialog.setOnShowListener(new DialogInterface.OnShowListener() {
             @Override
             public void onShow(DialogInterface dialog) {
+
                 Intent intentMain = new Intent(Login.this, MainActivity.class);
+                sp.edit().putString("EMAIL", user.emailaddress).commit();
                 Login.this.startActivity(intentMain);
             }
         });
