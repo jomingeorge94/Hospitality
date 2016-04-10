@@ -43,6 +43,9 @@ public class Profile extends ActionBarActivity {
                 android.R.layout.simple_spinner_item, arraySpinner);
         s.setAdapter(adapter);
 
+        final TextView t = (TextView) findViewById(R.id.contact);
+
+
 
 
         serverRequest.getUserProfile(new GetUserCallback() {
@@ -52,6 +55,8 @@ public class Profile extends ActionBarActivity {
                 ArrayAdapter arr = (ArrayAdapter) s.getAdapter();
                 int i = arr.getPosition(returnedUser.gender);
                 s.setSelection(i);
+
+                t.setText(returnedUser.contact);
 
                 u = returnedUser;
 
@@ -67,6 +72,7 @@ public class Profile extends ActionBarActivity {
             @Override
             public void onClick(View v) {
                 u.gender = s.getSelectedItem().toString();
+                u.contact = t.getText().toString();
                 ServerRequests serverRequest = new ServerRequests(Profile.this);
                 serverRequest.postUserDataInBackground(u, new GetUserCallback() {
                     @Override

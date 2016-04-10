@@ -56,6 +56,11 @@ public class ServerRequests  extends ActionBarActivity {
         new getUserProfileDataAsyncTask(userCallBack, email).execute();
     }
 
+    public void postReminderDataInBackground(ReminderObject r, GetUserCallback userCallBack, String email) {
+        progressDialog.show();
+        new postReminderDataAsyncTask(r, userCallBack, email).execute();
+    }
+
     public class getUserProfileDataAsyncTask extends AsyncTask<Void, Void, User> {
         User user;
         GetUserCallback userCallBack;
@@ -93,7 +98,8 @@ public class ServerRequests  extends ActionBarActivity {
                     String emailaddress = jObject.getString("emailaddress");
                     String password = jObject.getString("password");
                     String gender = jObject.getString("gender");
-                    user = new User(name,emailaddress,password, gender );
+                    String contact = jObject.getString("contact");
+                    user = new User(name,emailaddress,password, gender, contact );
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -247,6 +253,7 @@ public class ServerRequests  extends ActionBarActivity {
         protected Void doInBackground(Void... params) {
             ArrayList<NameValuePair> dataToSend = new ArrayList<>();
             dataToSend.add(new BasicNameValuePair("gender", user.gender));
+            dataToSend.add(new BasicNameValuePair("contact", user.contact));
             dataToSend.add(new BasicNameValuePair("email", user.emailaddress));
            // dataToSend.add(new BasicNameValuePair("language", user.languyage));
             // dataToSend.add(new BasicNameValuePair("contact", user.contact));
@@ -259,6 +266,61 @@ public class ServerRequests  extends ActionBarActivity {
 
             HttpClient client = new DefaultHttpClient(httpRequestParams);
             HttpPost post = new HttpPost(SERVER_ADDRESS + "ProfilePost.php");
+
+            try {
+                post.setEntity(new UrlEncodedFormEntity(dataToSend));
+                HttpResponse httpResponse = client.execute(post);
+
+                HttpEntity entity = httpResponse.getEntity();
+
+                if (httpResponse.getStatusLine().getStatusCode() == 200)
+                    return null;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void v) {
+            progressDialog.dismiss();
+            userCallBack.done(null);
+        }
+    }
+
+
+
+
+
+
+    public class postReminderDataAsyncTask extends AsyncTask<Void, Void, Void> {
+        ReminderObject r;
+        GetUserCallback userCallBack;
+        String email;
+
+        public postReminderDataAsyncTask(ReminderObject r, GetUserCallback userCallBack, String email) {
+            this.r = r;
+            this.userCallBack = userCallBack;
+            this.email = email;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            ArrayList<NameValuePair> dataToSend = new ArrayList<>();
+            dataToSend.add(new BasicNameValuePair("type", r.type));
+            dataToSend.add(new BasicNameValuePair("email", email));
+
+
+            HttpParams httpRequestParams = new BasicHttpParams();
+            HttpConnectionParams.setConnectionTimeout(httpRequestParams,
+                    CONNECTION_TIMEOUT);
+            HttpConnectionParams.setSoTimeout(httpRequestParams,
+                    CONNECTION_TIMEOUT);
+
+            HttpClient client = new DefaultHttpClient(httpRequestParams);
+            HttpPost post = new HttpPost(SERVER_ADDRESS + "ReminderPost.php");
 
             try {
                 post.setEntity(new UrlEncodedFormEntity(dataToSend));

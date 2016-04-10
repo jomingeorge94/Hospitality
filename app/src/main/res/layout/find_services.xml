@@ -10,28 +10,21 @@
 
     <LinearLayout
         android:orientation="vertical"
-        android:layout_width="fill_parent"
-        android:layout_height="60dp"
+        android:layout_width="30dp"
+        android:layout_height="31dp"
         android:weightSum="1"
-        android:layout_marginTop="-7dp"
-        android:baselineAligned="false">
+        android:id="@+id/back_button"
+        android:background="@drawable/navigation_back"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp">
 
-        <TextView
-            android:layout_width="32dp"
-            android:layout_height="match_parent"
-            android:id="@+id/main_menu_logout"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="20dp"
-            android:background="@drawable/log_out"
-            android:layout_marginLeft="145dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="10dp" />
     </LinearLayout>
 
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/scrollView2">
+        android:id="@+id/scrollView2"
+        android:layout_marginTop="20dp">
 
         <LinearLayout
             android:orientation="vertical"
@@ -47,14 +40,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/hospital"
-                    android:background="@drawable/profile"
+                    android:background="@drawable/hospital"
                     android:layout_marginLeft="30dp" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:id="@+id/pharmacy"
-                    android:background="@drawable/services"
+                    android:background="@drawable/pharmacy"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="30dp" />
 
@@ -69,15 +62,15 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView4"
-                    android:background="@drawable/remainder"
-                    android:layout_marginLeft="30dp" />
+                    android:id="@+id/clinics"
+                    android:layout_marginLeft="30dp"
+                    android:background="@drawable/walkincentre" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView5"
-                    android:background="@drawable/appointments"
+                    android:id="@+id/fracture"
+                    android:background="@drawable/fractureclinic"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="30dp"
                     android:layout_marginTop="2dp" />
@@ -92,15 +85,15 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView6"
-                    android:background="@drawable/callhelp"
+                    android:id="@+id/gp"
+                    android:background="@drawable/gp"
                     android:layout_marginLeft="30dp" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView7"
-                    android:background="@drawable/useful_links"
+                    android:id="@+id/dentist"
+                    android:background="@drawable/dentist"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="30dp" />
             </LinearLayout>
@@ -109,9 +102,22 @@
                 android:orientation="horizontal"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
-                android:layout_marginTop="20dp"
-                android:paddingBottom="40dp">
+                android:layout_marginTop="20dp" >
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/eyecare"
+                    android:background="@drawable/eyecare"
+                    android:layout_marginLeft="30dp" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/sexualhealth"
+                    android:background="@drawable/sexualhealth"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="30dp" />
             </LinearLayout>
 
         </LinearLayout>

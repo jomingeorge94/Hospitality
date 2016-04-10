@@ -82,6 +82,16 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
+        final ImageView reminder = (ImageView)findViewById(R.id.reminder);
+
+        reminder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMain = new Intent(MainActivity.this ,Reminder.class);
+                MainActivity.this.startActivity(intentMain);
+            }
+        });
+
 
     }
 
