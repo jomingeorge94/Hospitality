@@ -25,6 +25,8 @@ public class MyMap extends ActionBarActivity {
         Bundle bundle = new Bundle();
         bundle.putString("SERVICE", s);
 
+
+
         Fragment l = new LocationFragment();
         l.setArguments(bundle);
 

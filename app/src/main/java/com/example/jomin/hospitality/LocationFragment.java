@@ -1,5 +1,6 @@
 package com.example.jomin.hospitality;
 
+import android.graphics.Point;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -8,9 +9,11 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.util.Log;
+import android.view.Display;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -60,10 +63,16 @@ public class LocationFragment extends Fragment {
     private String provider;
     private MyLocationListener mylistener;
     private Criteria criteria;
+    View pic;
+            View txt;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+       pic = container.getRootView().findViewById(R.id.pic);
+         txt = container.getRootView().findViewById(R.id.text);
+
         Bundle bundle = getArguments();
         s = bundle.getString("SERVICE");
         if (container == null) {
@@ -157,8 +166,29 @@ public class LocationFragment extends Fragment {
         mMap.setMyLocationEnabled(true);
         mMap.setOnMyLocationChangeListener(myLocationChangeListener);
 
+        mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener(){
 
-    }
+            @Override
+            public void onMapClick(LatLng latLng) {
+                Display display = LocationFragment.this.getActivity().getWindowManager().getDefaultDisplay();
+                Point size = new Point();
+                display.getSize(size);
+                int width = size.x;
+                int height = size.y;
+
+                pic.setVisibility(View.GONE);
+                txt.setVisibility(View.GONE);
+
+
+
+                LocationFragment.this.getView().setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, height));
+            }
+        });
+
+
+
+
+        }
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
