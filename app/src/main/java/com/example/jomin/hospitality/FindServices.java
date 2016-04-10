@@ -32,6 +32,19 @@ public class FindServices extends ActionBarActivity {
             }
         });
 
+        ImageView pharmacy = (ImageView)findViewById(R.id.pharmacy);
+
+
+
+        pharmacy.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMain = new Intent(FindServices.this , MyMap.class);
+                intentMain.putExtra("SERVICE", "pharmacy");
+                FindServices.this.startActivity(intentMain);
+            }
+        });
+
 
     }
 

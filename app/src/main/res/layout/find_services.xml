@@ -53,7 +53,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/find_service"
+                    android:id="@+id/pharmacy"
                     android:background="@drawable/services"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="30dp" />

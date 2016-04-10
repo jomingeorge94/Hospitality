@@ -23,8 +23,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.31">
+        android:layout_height="177dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -37,8 +36,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.30">
+        android:layout_height="146dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -52,8 +50,8 @@
         android:id="@+id/lay"
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="0.36">
+        android:layout_alignParentBottom="true"
+        android:layout_height="match_parent">
 
 
 
