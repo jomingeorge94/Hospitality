@@ -1,9 +1,12 @@
 package com.example.jomin.hospitality;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
+import android.view.View;
+import android.widget.LinearLayout;
 
 /**
  * Created by Jomin on 08/04/2016.
@@ -32,7 +35,22 @@ public class MyMap extends ActionBarActivity {
                 .replace(R.id.lay, l)
                 .commit();
 
+        LinearLayout goBack = (LinearLayout)findViewById(R.id.back_button);
+
+        goBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMain = new Intent(MyMap.this ,FindServices.class);
+                MyMap.this.startActivity(intentMain);
+            }
+        });
+
     }
+
+    public void onBackPressed() {
+        return;
+    }
+
 }
 
 

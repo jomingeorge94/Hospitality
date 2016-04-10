@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class ServerRequests  extends ActionBarActivity {
     ProgressDialog progressDialog;
     public static final int CONNECTION_TIMEOUT = 1000 * 15;
-    public static final String SERVER_ADDRESS = "http://dc6ae394.ngrok.io/hospitality/PHP/";
+    public static final String SERVER_ADDRESS = "http://dcef004e.ngrok.io/hospitality/PHP/";
 
     public ServerRequests(Context context) {
 

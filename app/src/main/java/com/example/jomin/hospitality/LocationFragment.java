@@ -1,6 +1,5 @@
 package com.example.jomin.hospitality;
 
-import android.content.Context;
 import android.location.Criteria;
 import android.location.Location;
 import android.location.LocationListener;
@@ -17,6 +16,7 @@ import android.widget.RelativeLayout;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
@@ -27,13 +27,22 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Jomin on 08/04/2016.
  */
 public class LocationFragment extends Fragment {
 
+
+
     String s;
+    boolean mutex = false;
     private LocationManager locationManager;
 
 
@@ -44,7 +53,8 @@ public class LocationFragment extends Fragment {
      * available.
      */
 
-    private static GoogleMap mMap;
+    public  GoogleMap mMap;
+    // Default newcastle. But that's only if the user doesn't have GPS.
     private static double latitude = 54.97;
     private static double longitude = -1.62;
     private String provider;
@@ -60,27 +70,32 @@ public class LocationFragment extends Fragment {
             return null;
         }
         view = (RelativeLayout) inflater.inflate(R.layout.map_frag, container, false);
-        locationManager = (LocationManager) getActivity().getSystemService(Context.LOCATION_SERVICE);
-        criteria = new Criteria();
-        criteria.setAccuracy(Criteria.ACCURACY_COARSE);   //default
 
-        // user defines the criteria
-
-        criteria.setCostAllowed(false);
-        // get the best provider depending on the criteria
-        provider = locationManager.getBestProvider(criteria, false);
-
-        // the last known location of this provider
-        Location location = locationManager.getLastKnownLocation(provider);
-
-        mylistener = new MyLocationListener();
 
 
         setUpMapIfNeeded(); // For setting up the MapFragment
-        locationManager.requestLocationUpdates(provider, 200, 1, mylistener);
 
         return view;
     }
+
+    private GoogleMap.OnMyLocationChangeListener myLocationChangeListener = new GoogleMap.OnMyLocationChangeListener() {
+        @Override
+        public void onMyLocationChange(Location location) {
+
+
+            if(!mutex) {
+                mutex = true;
+                latitude = location.getLatitude();
+                longitude = location.getLongitude();
+                new places().execute();
+            }
+
+            // For zooming automatically to the Dropped PIN Location
+            mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude,
+                    longitude), 12.0f));
+
+        }
+    };
 
     private class MyLocationListener implements LocationListener {
 
@@ -88,8 +103,13 @@ public class LocationFragment extends Fragment {
         public void onLocationChanged(Location location) {
             // Initialize the location fields
 
-            latitude = location.getLatitude();
-            longitude = location.getLongitude();
+            // For dropping a marker at a point on the Map
+
+
+
+
+
+
 
         }
 
@@ -135,13 +155,9 @@ public class LocationFragment extends Fragment {
         Log.i("MARIE", "MARIE");
         // For showing a move to my loction button
         mMap.setMyLocationEnabled(true);
-        new places().execute();
-        // For dropping a marker at a point on the Map
-        mMap.addMarker(new MarkerOptions().position(new LatLng(latitude, longitude)).title("My Home").snippet("Home Address"));
-        Log.i("INDIASHIT", s);
-        // For zooming automatically to the Dropped PIN Location
-       mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(latitude,
-                 longitude), 12.0f));
+        mMap.setOnMyLocationChangeListener(myLocationChangeListener);
+
+
     }
 
     @Override
@@ -160,7 +176,7 @@ public class LocationFragment extends Fragment {
         }
     }
 
-    private String big;
+    List<MapsRepresenter> res = new ArrayList<MapsRepresenter>();
 
     /**** The mapfragment's id must be removed from the FragmentManager
      **** or else if the same it is passed on the next time then
@@ -192,8 +208,8 @@ public class LocationFragment extends Fragment {
 
 
             HttpClient client = new DefaultHttpClient(httpRequestParams);
-            HttpGet post = new HttpGet("https://maps.googleapis.com/maps/api/place/search/json?key=AIzaSyDYH1r7M3QD0847WQKuWcUR3AlX-AIkxe4"+
-                    "&location=" + latitude + "," + longitude + "&radius=20&sensor=false&types=" + s);
+            HttpGet post = new HttpGet("https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=AIzaSyDYH1r7M3QD0847WQKuWcUR3AlX-AIkxe4"+
+                    "&location=" + latitude + "," + longitude + "&radius=16000&sensor=false&types=" + s);
 
             try {
                 HttpResponse httpResponse = client.execute(post);
@@ -210,8 +226,45 @@ public class LocationFragment extends Fragment {
 
         @Override
         protected void onPostExecute(String v) {
-            LocationFragment.this.big = v;
-            Log.i("sni", v);
+
+            try {
+                JSONObject jObject = new JSONObject(v);
+                JSONArray jArray = jObject.getJSONArray("results");
+
+
+                for (int i=0; i < jArray.length(); i++)
+                {
+
+                    MapsRepresenter r = new MapsRepresenter();
+
+                    try {
+                        JSONObject oneObject = jArray.getJSONObject(i);
+
+                        r.lat = oneObject.getJSONObject("geometry").getJSONObject("location").getDouble("lat");
+                        r.lng = oneObject.getJSONObject("geometry").getJSONObject("location").getDouble("lng");
+                        // Pulling items from the array
+                        r.name = oneObject.getString("name");
+                        r.addr = oneObject.getString("vicinity");
+                        LocationFragment.this.res.add(r);
+
+
+
+                    } catch (JSONException e) {
+                        Log.i("Weed", "Nsmoker");
+                    }
+
+
+
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            for(MapsRepresenter m : LocationFragment.this.res){
+                LocationFragment.this.mMap.addMarker(new MarkerOptions().position(new LatLng(m.lat, m.lng)).title(m.name).snippet(m.addr).icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_ORANGE)));
+            }
+
         }
     }
 }
