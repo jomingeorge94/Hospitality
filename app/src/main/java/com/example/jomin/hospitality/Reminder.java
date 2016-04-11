@@ -102,7 +102,10 @@ public class Reminder extends ActionBarActivity {
                             .setContentText("You need to enter all fields !!")
                             .show();
                 } else {
-                    if(date.getText().toString().matches("[0-9]+.*") || time.getText().toString().matches("[0-9]+.*")) {
+                    //date regex has been used from http://stackoverflow.com/questions/15491894/regex-to-validate-date-format-dd-mm-yyyy
+                    // time regex has been used from http://stackoverflow.com/questions/8699636/regex-validation-for-time-entries
+                    if(date.getText().toString().matches("^(?:(?:31(\\/|-|\\.)(?:0?[13578]|1[02]))\\1|(?:(?:29|30)(\\/|-|\\.)(?:0?[1,3-9]|1[0-2])\\2))(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$|^(?:29(\\/|-|\\.)0?2\\3(?:(?:(?:1[6-9]|[2-9]\\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\\d|2[0-8])(\\/|-|\\.)(?:(?:0?[1-9])|(?:1[0-2]))\\4(?:(?:1[6-9]|[2-9]\\d)?\\d{2})$")
+                            || time.getText().toString().matches("([01]?[0-9]|2[0-3]):[0-5][0-9]")) {
                         ServerRequests serverRequest = new ServerRequests(Reminder.this);
                         serverRequest.postReminderDataInBackground(new ReminderObject(s.getSelectedItem().toString(), date.getText().toString(), time.getText().toString()), new GetUserCallback() {
                             @Override
