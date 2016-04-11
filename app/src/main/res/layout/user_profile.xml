@@ -50,7 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="40dp"
-            android:layout_gravity="center_horizontal">
+            android:layout_gravity="center_horizontal"
+            android:weightSum="1">
 
 
             <ImageView
@@ -69,10 +70,10 @@
                 android:layout_marginTop="-20dp" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Jomin George"
-                android:id="@+id/textView2"
+                android:id="@+id/name"
                 android:layout_marginLeft="80dp"
                 android:layout_marginTop="5dp"
                 android:textSize="20sp"
@@ -80,31 +81,67 @@
                 android:textColor="#ffffffff" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Last Login: Thursday, February 29, 2016, 15:03:34"
-                android:id="@+id/textView5"
+                android:text="Member Since : February, 2016"
+                android:id="@+id/membersince"
                 android:layout_marginTop="5dp"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:textColor="#ffffffff" />
+                android:textColor="#ffffffff"
+                android:layout_marginLeft="70dp" />
 
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinner" />
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="10dp">
 
-            <EditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/contact" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender :"
+                    android:id="@+id/textview12"
+                    android:textSize="20sp"
+                    android:textIsSelectable="false" />
+
+                <Spinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/spinner" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="20dp" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Contact :"
+                    android:id="@+id/textView5"
+                    android:textSize="20sp"
+                    android:textIsSelectable="false" />
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:maxLength="11"
+                    android:id="@+id/contact" />
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:text="Done"
-                android:id="@+id/done" />
+                android:textSize="30sp"
+                android:id="@+id/done"
+                android:layout_marginTop="80dp"
+                android:layout_marginLeft="200dp" />
 
 
         </LinearLayout>

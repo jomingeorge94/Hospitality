@@ -11,14 +11,19 @@
     mysqli_stmt_bind_result($statement, $ID, $fullname, $email, $contact, $password, $gender, $created_at);
 
     $user = array();
-
+    
     while(mysqli_stmt_fetch($statement)){
         $user["name"] = $fullname;
         $user["emailaddress"] = $email;
         $user["password"] = $password;
         $user["gender"] = $gender;
         $user["contact"] = $contact;
+        $created_at = date("F, Y", strtotime($created_at));
+        $user["created"] = $created_at;
+
     }
+
+    
 
     echo json_encode($user);
     mysqli_stmt_close($statement);

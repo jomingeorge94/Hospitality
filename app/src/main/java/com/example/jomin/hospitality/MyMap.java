@@ -1,11 +1,13 @@
 package com.example.jomin.hospitality;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -13,7 +15,6 @@ import android.widget.TextView;
  * Created by Jomin on 08/04/2016.
  */
 public class MyMap extends ActionBarActivity {
-
 
     public static FragmentManager fragmentManager;
     @Override
@@ -24,22 +25,24 @@ public class MyMap extends ActionBarActivity {
         String s = getIntent().getStringExtra("SERVICE");
         String t = getIntent().getStringExtra("TEXT");
 
+        int getting_Intent = getIntent().getIntExtra("IMAGE", 0);
+        Drawable drawable_Resource = getResources().getDrawable(getting_Intent);
+
         Bundle bundle = new Bundle();
         bundle.putString("SERVICE", s);
 
         TextView text = (TextView)findViewById(R.id.map_text);
         text.setText(t);
 
+        ImageView image = (ImageView)findViewById(R.id.service_image);
+        image.setImageDrawable(drawable_Resource);
 
         Fragment l = new LocationFragment();
         l.setArguments(bundle);
 
-        // initialising the object of the FragmentManager. Here I'm passing getSupportFragmentManager(). You can pass getFragmentManager() if you are coding for Android 3.0 or above.
         fragmentManager = getSupportFragmentManager();
 
-        fragmentManager.beginTransaction()
-                .replace(R.id.lay, l)
-                .commit();
+        fragmentManager.beginTransaction().replace(R.id.lay, l).commit();
 
         LinearLayout goBack = (LinearLayout)findViewById(R.id.back_button);
 
@@ -50,13 +53,9 @@ public class MyMap extends ActionBarActivity {
                 MyMap.this.startActivity(intentMain);
             }
         });
-
     }
 
     public void onBackPressed() {
         return;
     }
-
 }
-
-

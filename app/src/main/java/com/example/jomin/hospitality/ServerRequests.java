@@ -4,6 +4,7 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -181,9 +182,6 @@ public class ServerRequests  extends ActionBarActivity {
             HttpClient client = new DefaultHttpClient(httpRequestParams);
             HttpGet get = new HttpGet(SERVER_ADDRESS + "profile.php?email=" + email);
 
-
-
-
             try {
                 get.setParams(httpRequestParams);
 
@@ -194,12 +192,14 @@ public class ServerRequests  extends ActionBarActivity {
                 JSONObject jObject = new JSONObject(result);
 
                 if (jObject.length() != 0){
+                    Log.i("JSON",jObject.toString());
                     String name = jObject.getString("name");
                     String emailaddress = jObject.getString("emailaddress");
                     String password = jObject.getString("password");
                     String gender = jObject.getString("gender");
                     String contact = jObject.getString("contact");
-                    user = new User(name,emailaddress,password, gender, contact );
+                    String created_date = jObject.getString("created");
+                    user = new User(name,emailaddress,password, gender, contact, created_date);
                 }
             } catch (Exception e) {
                 e.printStackTrace();

@@ -45,10 +45,12 @@ public class Profile extends ActionBarActivity {
                 android.R.layout.simple_spinner_item, arraySpinner);
         s.setAdapter(adapter);
 
+
+        final TextView member_since = (TextView) findViewById(R.id.membersince);
+        final TextView name = (TextView) findViewById(R.id.name);
+
+
         final TextView t = (TextView) findViewById(R.id.contact);
-
-
-
 
         serverRequest.getUserProfile(new GetUserCallback() {
             @Override
@@ -57,7 +59,8 @@ public class Profile extends ActionBarActivity {
                 ArrayAdapter arr = (ArrayAdapter) s.getAdapter();
                 int i = arr.getPosition(returnedUser.gender);
                 s.setSelection(i);
-
+                name.setText(returnedUser.fullname);
+                member_since.setText("Member Since : " + returnedUser.created);
                 t.setText(returnedUser.contact);
 
                 u = returnedUser;
