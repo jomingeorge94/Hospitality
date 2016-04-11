@@ -69,8 +69,9 @@
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:text="Date"
-                    android:layout_marginLeft="30dp"
-                    android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold"
+                    android:textSize="20sp"></TextView>
 
                 <TextView
                     android:id="@+id/cell2"
@@ -78,7 +79,9 @@
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:text="Time"
-                    android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold"
+                    android:textSize="20sp"></TextView>
 
                 <TextView
                     android:id="@+id/cell3"
@@ -86,7 +89,9 @@
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:text="Description"
-                    android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold"
+                    android:textSize="20sp"></TextView>
 
                 <TextView
                     android:id="@+id/cell4"
@@ -94,7 +99,9 @@
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:text="Delete"
-                    android:textAppearance="?android:attr/textAppearanceMedium"></TextView>
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textStyle="bold"
+                    android:textSize="20sp"></TextView>
 
             </TableRow>
 

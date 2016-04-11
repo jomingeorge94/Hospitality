@@ -40,62 +40,47 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="user_reminders.xml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/user_reminders.xml">
+      <file leaf-file-name="Appointments.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/Appointments.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4526515" vertical-offset="866" max-vertical-offset="3111">
+              <caret line="80" column="101" selection-start-line="80" selection-start-column="101" selection-end-line="80" selection-end-column="101" />
+              <folding>
+                <element signature="e#3204#6130#0" expanded="true" />
+                <element signature="e#3801#5545#0" expanded="true" />
+                <element signature="e#5502#5503#0" expanded="true" />
+                <element signature="e#5675#6020#0" expanded="true" />
+                <element signature="e#5977#5978#0" expanded="true" />
+                <element signature="e#6103#6104#0" expanded="true" />
+                <element signature="e#6798#7062#0" expanded="true" />
+                <element signature="e#7051#7052#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="271" max-vertical-offset="2261">
+              <caret line="56" column="32" selection-start-line="33" selection-start-column="16" selection-end-line="56" selection-end-column="32" />
+              <folding>
+                <element signature="e#1963#2228#0" expanded="true" />
+                <element signature="e#2201#2202#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="appointments.xml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/appointments.xml">
           <provider selected="true" editor-type-id="android-designer">
             <state />
           </provider>
           <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="1641" max-vertical-offset="2397">
-              <caret line="125" column="3" selection-start-line="125" selection-start-column="3" selection-end-line="125" selection-end-column="3" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="751" max-vertical-offset="2023">
+              <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Reminder.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/Reminder.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2990291" vertical-offset="1631" max-vertical-offset="3230">
-              <caret line="105" column="129" selection-start-line="105" selection-start-column="129" selection-end-line="105" selection-end-column="129" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1250#1258#0" expanded="true" />
-                <element signature="e#2761#5974#0" expanded="true" />
-                <element signature="e#5115#5559#0" expanded="true" />
-                <element signature="e#5524#5525#0" expanded="true" />
-                <element signature="e#5963#5964#0" expanded="true" />
-                <element signature="e#6076#6332#0" expanded="true" />
-                <element signature="e#6321#6322#0" expanded="true" />
-                <element signature="e#6786#6787#0" expanded="true" />
-                <element signature="e#6808#6809#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ServerRequests.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/ServerRequests.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="6811" max-vertical-offset="8568">
-              <caret line="412" column="55" selection-start-line="412" selection-start-column="51" selection-end-line="412" selection-end-column="55" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#3308#3324#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReminderObject.java" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/ReminderObject.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-              <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
-              <folding>
-                <element signature="e#195#196#0" expanded="true" />
-                <element signature="e#227#228#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -905,12 +890,10 @@
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/main_activity.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/MainActivity.java" />
-        <option value="$PROJECT_DIR$/app/src/main/res/layout/appointments.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/GetUserCallback.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/Profile.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/Register.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/Login.java" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/Appointments.java" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/map.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/MyMap.java" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/FindServices.java" />
@@ -919,6 +902,8 @@
         <option value="$PROJECT_DIR$/app/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/user_reminders.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/Reminder.java" />
+        <option value="$PROJECT_DIR$/app/src/main/res/layout/appointments.xml" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/Appointments.java" />
       </list>
     </option>
   </component>
@@ -1450,7 +1435,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38153505" sideWeight="0.6391258" order="14" side_tool="false" content_ui="tabs" />
+      <window_info id="Android" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38153505" sideWeight="0.6391258" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32925472" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1780,17 +1765,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/appointments.xml">
-      <provider selected="true" editor-type-id="android-designer">
-        <state />
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="869" max-vertical-offset="1904">
-          <caret line="71" column="47" selection-start-line="71" selection-start-column="47" selection-end-line="71" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/UserLocalDrive.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.7405303" vertical-offset="255" max-vertical-offset="1071">
@@ -1901,17 +1875,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/Appointments.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.3560606" vertical-offset="390" max-vertical-offset="2550">
-          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/ReminderObject.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
+        <state vertical-scroll-proportion="0.3219697" vertical-offset="0" max-vertical-offset="680">
           <caret line="10" column="38" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
           <folding>
             <element signature="e#195#196#0" expanded="true" />
@@ -1941,22 +1907,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/ServerRequests.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="6811" max-vertical-offset="8568">
+        <state vertical-scroll-proportion="0.3655303" vertical-offset="6811" max-vertical-offset="8568">
           <caret line="412" column="55" selection-start-line="412" selection-start-column="51" selection-end-line="412" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#3308#3324#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/MainActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5814394" vertical-offset="271" max-vertical-offset="2261">
-          <caret line="48" column="26" selection-start-line="38" selection-start-column="24" selection-end-line="48" selection-end-column="26" />
-          <folding>
-            <element signature="e#3143#3403#0" expanded="true" />
-            <element signature="e#3392#3393#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1976,6 +1931,45 @@
             <element signature="e#6321#6322#0" expanded="true" />
             <element signature="e#6786#6787#0" expanded="true" />
             <element signature="e#6808#6809#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/appointments.xml">
+      <provider selected="true" editor-type-id="android-designer">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="751" max-vertical-offset="2040">
+          <caret line="54" column="24" selection-start-line="54" selection-start-column="24" selection-end-line="54" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="271" max-vertical-offset="2261">
+          <caret line="56" column="32" selection-start-line="33" selection-start-column="16" selection-end-line="56" selection-end-column="32" />
+          <folding>
+            <element signature="e#1963#2228#0" expanded="true" />
+            <element signature="e#2201#2202#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/jomin/hospitality/Appointments.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4526515" vertical-offset="866" max-vertical-offset="3111">
+          <caret line="80" column="101" selection-start-line="80" selection-start-column="101" selection-end-line="80" selection-end-column="101" />
+          <folding>
+            <element signature="e#3204#6130#0" expanded="true" />
+            <element signature="e#3801#5545#0" expanded="true" />
+            <element signature="e#5502#5503#0" expanded="true" />
+            <element signature="e#5675#6020#0" expanded="true" />
+            <element signature="e#5977#5978#0" expanded="true" />
+            <element signature="e#6103#6104#0" expanded="true" />
+            <element signature="e#6798#7062#0" expanded="true" />
+            <element signature="e#7051#7052#0" expanded="true" />
           </folding>
         </state>
       </provider>
