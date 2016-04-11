@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 
 public class CallForHelp extends ActionBarActivity {
-    
+
     LinearLayout goBack;
     ImageButton call_999, call_111;
 

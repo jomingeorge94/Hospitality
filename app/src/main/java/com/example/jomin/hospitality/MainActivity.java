@@ -112,6 +112,16 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
+        final ImageView aboutus = (ImageView)findViewById(R.id.about_us);
+
+        aboutus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMain = new Intent(MainActivity.this ,AboutUs.class);
+                MainActivity.this.startActivity(intentMain);
+            }
+        });
+
 
     }
 

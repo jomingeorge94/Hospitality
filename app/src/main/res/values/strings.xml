@@ -15,4 +15,9 @@
         fully trained advisers there to assist you 24 hours a day, 365 days a year. \n\n 999 is an emergency number and only ring this number if you or the patient you ringing for is seeking for urgent care.
 
     </string>
+    <string name="aboutus">This app is mainly designed for the intention of providing the end user with the full services that NHS provides to their patients.\n\n
+        This involves in giving the ability for the patient to find a service that is close by to them (e.g. finding nearest eye clinic in a radius of 5 miles from a given postcode) and other useful features.
+
+
+    </string>
 </resources>
