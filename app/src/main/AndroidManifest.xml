@@ -57,7 +57,11 @@
         <activity
         android:name=".Reminder"
         android:label="@string/app_name" >
+        </activity>
 
+        <activity
+            android:name=".CallForHelp"
+            android:label="@string/app_name" >
         </activity>
 
         <activity

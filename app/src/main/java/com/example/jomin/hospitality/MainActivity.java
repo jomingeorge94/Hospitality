@@ -82,6 +82,16 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
+        final ImageView callforhelp = (ImageView)findViewById(R.id.callforhelp);
+
+        callforhelp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMain = new Intent(MainActivity.this ,CallForHelp.class);
+                MainActivity.this.startActivity(intentMain);
+            }
+        });
+
         final ImageView reminder = (ImageView)findViewById(R.id.reminder);
 
         reminder.setOnClickListener(new View.OnClickListener() {

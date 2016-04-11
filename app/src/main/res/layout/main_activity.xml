@@ -92,7 +92,7 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageView6"
+                    android:id="@+id/callforhelp"
                     android:background="@drawable/callhelp"
                     android:layout_marginLeft="30dp" />
 

@@ -11,5 +11,8 @@
     <string name="hospitality">Hospitality</string>
     <string name="map">Map</string>
     <string name="find">Find Services</string>
+    <string name="callforhelp">NHS provide two different helpline for the patient, 111 service is free telephone service which a team of
+        fully trained advisers there to assist you 24 hours a day, 365 days a year. \n\n 999 is an emergency number and only ring this number if you or the patient you ringing for is seeking for urgent care.
 
+    </string>
 </resources>
