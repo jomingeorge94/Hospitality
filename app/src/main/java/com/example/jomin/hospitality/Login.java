@@ -14,6 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.util.List;
+
 import cn.pedant.SweetAlert.SweetAlertDialog;
 
 
@@ -82,7 +84,7 @@ public class Login extends ActionBarActivity {
             }
 
             @Override
-            public void done(ReminderObject returnedUser) {
+            public void done( List<ReminderObject> returnedUser) {
                 Log.i("Unused", "");
             }
 

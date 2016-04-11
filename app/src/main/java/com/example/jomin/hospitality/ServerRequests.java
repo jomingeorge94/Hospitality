@@ -18,9 +18,12 @@ import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 import org.apache.http.util.EntityUtils;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 public class ServerRequests  extends ActionBarActivity {
@@ -66,7 +69,12 @@ public class ServerRequests  extends ActionBarActivity {
         new getRemindersDataAsyncTask(userCallBack, email).execute();
     }
 
-    public class getRemindersDataAsyncTask extends AsyncTask<Void, Void, ReminderObject> {
+    public void postDeleteReminderDataInBackground(String i, GetUserCallback userCallBack) {
+        progressDialog.show();
+        new postDeleteReminderDataAsyncTask(i, userCallBack).execute();
+    }
+
+    public class getRemindersDataAsyncTask extends AsyncTask<Void, Void,  List<ReminderObject>> {
         ReminderObject obj;
         GetUserCallback userCallBack;
         String email;
@@ -78,13 +86,14 @@ public class ServerRequests  extends ActionBarActivity {
         }
 
         @Override
-        protected ReminderObject doInBackground(Void... params) {
+        protected  List<ReminderObject> doInBackground(Void... params) {
 
+            List<ReminderObject> rems = new ArrayList<ReminderObject>();
 
             HttpParams httpRequestParams = getHttpRequestParams();
 
             HttpClient client = new DefaultHttpClient(httpRequestParams);
-            HttpGet get = new HttpGet(SERVER_ADDRESS + "appointments.php?email=" + email);
+            HttpGet get = new HttpGet(SERVER_ADDRESS + "reminder.php?email=" + email);
 
 
 
@@ -96,20 +105,42 @@ public class ServerRequests  extends ActionBarActivity {
 
                 HttpEntity entity = httpResponse.getEntity();
                 String result = EntityUtils.toString(entity);
-                JSONObject jObject = new JSONObject(result);
 
-                if (jObject.length() != 0){
-                    String type = jObject.getString("type");
-                    String date = jObject.getString("date");
-                    String time = jObject.getString("time");
+                try {
+                    JSONArray jObject = new JSONArray(result);
 
-                    obj = new ReminderObject(type,date,time );
+
+                    for (int i=0; i < jObject.length(); i++)
+                    {
+
+
+                        try {
+                            String date = jObject.getJSONObject(i).getString("date");
+                            String time = jObject.getJSONObject(i).getString("time");
+                            String type = jObject.getJSONObject(i).getString("type");
+                            int id = jObject.getJSONObject(i).getInt("id");
+
+
+
+                               rems.add(new ReminderObject(type, date, time, id));
+
+                        } catch (JSONException e) {
+
+                        }
+
+
+
+                    }
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
+
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
-            return obj;
+            return rems;
         }
 
         private HttpParams getHttpRequestParams() {
@@ -122,7 +153,7 @@ public class ServerRequests  extends ActionBarActivity {
         }
 
         @Override
-        protected void onPostExecute(ReminderObject obj) {
+        protected void onPostExecute( List<ReminderObject> obj) {
             super.onPostExecute(obj);
             progressDialog.dismiss();
             userCallBack.done(obj);
@@ -390,6 +421,55 @@ public class ServerRequests  extends ActionBarActivity {
 
             HttpClient client = new DefaultHttpClient(httpRequestParams);
             HttpPost post = new HttpPost(SERVER_ADDRESS + "ReminderPost.php");
+
+            try {
+                post.setEntity(new UrlEncodedFormEntity(dataToSend));
+                HttpResponse httpResponse = client.execute(post);
+
+                HttpEntity entity = httpResponse.getEntity();
+
+                if (httpResponse.getStatusLine().getStatusCode() == 200)
+                    return null;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void v) {
+            progressDialog.dismiss();
+            userCallBack.done();
+        }
+    }
+
+
+
+    public class postDeleteReminderDataAsyncTask extends AsyncTask<Void, Void, Void> {
+        String r;
+        GetUserCallback userCallBack;
+
+        public postDeleteReminderDataAsyncTask(String r, GetUserCallback userCallBack) {
+            this.r = r;
+            this.userCallBack = userCallBack;
+        }
+
+        @Override
+        protected Void doInBackground(Void... params) {
+            ArrayList<NameValuePair> dataToSend = new ArrayList<>();
+            dataToSend.add(new BasicNameValuePair("id", r));
+
+
+            HttpParams httpRequestParams = new BasicHttpParams();
+            HttpConnectionParams.setConnectionTimeout(httpRequestParams,
+                    CONNECTION_TIMEOUT);
+            HttpConnectionParams.setSoTimeout(httpRequestParams,
+                    CONNECTION_TIMEOUT);
+
+            HttpClient client = new DefaultHttpClient(httpRequestParams);
+            HttpPost post = new HttpPost(SERVER_ADDRESS + "DeleteReminder.php");
 
             try {
                 post.setEntity(new UrlEncodedFormEntity(dataToSend));

@@ -6,16 +6,18 @@ package com.example.jomin.hospitality;
 public class ReminderObject {
 
     String type, date, time;
+    int id;
 
     public ReminderObject(String type) {
         this.type = type;
     }
 
-    public ReminderObject(String type, String date, String time)
+    public ReminderObject(String type, String date, String time, int id)
     {
         this.date = date;
         this.time = time;
         this.type = type;
+        this.id = id;
     }
 
     public ReminderObject(String type, String date)
@@ -23,6 +25,8 @@ public class ReminderObject {
         this.date = date;
         this.type = type;
     }
+
+
 
     public String toString(){
         return "Type: " + type + "  DATE: " + date + " TIME: " + time;

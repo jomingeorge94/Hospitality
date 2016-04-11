@@ -1,5 +1,7 @@
 package com.example.jomin.hospitality;
 
+import java.util.List;
+
 interface GetUserCallback {
 
     /**
@@ -8,6 +10,6 @@ interface GetUserCallback {
 
     public abstract void done(User returnedUser);
     public abstract void done();
-    public abstract void done(ReminderObject returnedUser);
+    public abstract void done( List<ReminderObject> returnedUser);
 
 }

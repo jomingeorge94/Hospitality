@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 /**
  * Created by Jomin on 08/04/2016.
@@ -21,10 +22,13 @@ public class MyMap extends ActionBarActivity {
         setContentView(R.layout.map);
 
         String s = getIntent().getStringExtra("SERVICE");
+        String t = getIntent().getStringExtra("TEXT");
 
         Bundle bundle = new Bundle();
         bundle.putString("SERVICE", s);
 
+        TextView text = (TextView)findViewById(R.id.map_text);
+        text.setText(t);
 
 
         Fragment l = new LocationFragment();

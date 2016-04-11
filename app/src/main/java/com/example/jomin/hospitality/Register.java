@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -147,7 +148,7 @@ public class Register extends ActionBarActivity {
             }
 
             @Override
-            public void done(ReminderObject returnedUser) {
+            public void done( List<ReminderObject> returnedUser) {
                 Log.i("Unused", "");
             }
 

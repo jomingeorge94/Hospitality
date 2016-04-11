@@ -25,6 +25,7 @@ public class FindServices extends ActionBarActivity {
             public void onClick(View v) {
                 Intent intentMain = new Intent(FindServices.this , MyMap.class);
                 intentMain.putExtra("SERVICE", "hospital");
+                intentMain.putExtra("TEXT", "A hospital example.");
                 FindServices.this.startActivity(intentMain);
             }
         });
@@ -35,6 +36,7 @@ public class FindServices extends ActionBarActivity {
             public void onClick(View v) {
                 Intent intentMain = new Intent(FindServices.this , MyMap.class);
                 intentMain.putExtra("SERVICE", "pharmacy");
+                intentMain.putExtra("TEXT", "Marie.");
                 FindServices.this.startActivity(intentMain);
             }
         });

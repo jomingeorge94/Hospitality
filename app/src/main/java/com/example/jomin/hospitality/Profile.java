@@ -13,6 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.List;
+
 
 public class Profile extends ActionBarActivity {
 
@@ -64,7 +66,7 @@ public class Profile extends ActionBarActivity {
             }
 
             @Override
-            public void done(ReminderObject returnedUser) {
+            public void done( List<ReminderObject> returnedUser) {
                 Log.i("Unused", "");
             }
 
@@ -95,7 +97,7 @@ public class Profile extends ActionBarActivity {
                     }
 
                     @Override
-                    public void done(ReminderObject returnedUser) {
+                    public void done( List<ReminderObject> returnedUser) {
                         Log.i("Fire Reminder", "");
                     }
 

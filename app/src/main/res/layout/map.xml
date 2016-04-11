@@ -47,7 +47,7 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:text="Large Text"
-            android:id="@+id/textView6" />
+            android:id="@+id/map_text" />
     </LinearLayout>
 
     <LinearLayout
