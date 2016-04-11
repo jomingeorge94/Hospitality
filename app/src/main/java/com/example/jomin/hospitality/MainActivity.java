@@ -92,6 +92,16 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
+        final ImageView appointment = (ImageView)findViewById(R.id.appointment);
+
+        appointment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMain = new Intent(MainActivity.this ,Appointments.class);
+                MainActivity.this.startActivity(intentMain);
+            }
+        });
+
 
     }
 

@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -78,6 +79,16 @@ public class Login extends ActionBarActivity {
                 else {
                        logUserIn(returnedUser);
                 }
+            }
+
+            @Override
+            public void done(ReminderObject returnedUser) {
+                Log.i("Unused", "");
+            }
+
+            @Override
+            public void done() {
+                Log.i("Unused", "");
             }
         });
     }

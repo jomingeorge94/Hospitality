@@ -3,6 +3,7 @@ package com.example.jomin.hospitality;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -127,7 +128,7 @@ public class Register extends ActionBarActivity {
         ServerRequests serverRequest = new ServerRequests(this);
         serverRequest.storeUserDataInBackground(user, new GetUserCallback() {
             @Override
-            public void done(User returnedUser) {
+            public void done() {
 
                 new SweetAlertDialog(Register.this, SweetAlertDialog.SUCCESS_TYPE)
                         .setTitleText("Registered Successfully !!")
@@ -143,6 +144,16 @@ public class Register extends ActionBarActivity {
                         })
                         .show();
 
+            }
+
+            @Override
+            public void done(ReminderObject returnedUser) {
+                Log.i("Unused", "");
+            }
+
+            @Override
+            public void done(User u) {
+                Log.i("Unused", "");
             }
         });
     }

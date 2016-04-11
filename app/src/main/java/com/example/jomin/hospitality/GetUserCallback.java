@@ -7,5 +7,7 @@ interface GetUserCallback {
      */
 
     public abstract void done(User returnedUser);
+    public abstract void done();
+    public abstract void done(ReminderObject returnedUser);
 
 }

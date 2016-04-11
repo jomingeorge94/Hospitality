@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -59,6 +60,16 @@ public class Reminder extends ActionBarActivity {
                     @Override
                     public void done(User returnedUser) {
 
+                    }
+
+                    @Override
+                    public void done(ReminderObject returnedUser) {
+                        Log.i("Unused", "");
+                    }
+
+                    @Override
+                    public void done() {
+                        Log.i("SHOULD BE THIS ONE", "OKAY MARIE");
                     }
 
                 }, sp.getString("EMAIL", "not_found"));

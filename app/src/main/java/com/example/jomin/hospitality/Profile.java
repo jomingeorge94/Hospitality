@@ -62,6 +62,16 @@ public class Profile extends ActionBarActivity {
 
 
             }
+
+            @Override
+            public void done(ReminderObject returnedUser) {
+                Log.i("Unused", "");
+            }
+
+            @Override
+            public void done() {
+                Log.i("Unused", "");
+            }
         }, sp.getString("EMAIL", "not_found"));
 
 
@@ -76,8 +86,17 @@ public class Profile extends ActionBarActivity {
                 ServerRequests serverRequest = new ServerRequests(Profile.this);
                 serverRequest.postUserDataInBackground(u, new GetUserCallback() {
                     @Override
+                    public void done() {
+                    }
+
+                    @Override
                     public void done(User returnedUser) {
-                        Log.i("UPDATE", "UPDA");
+                        Log.i("Fire User", "");
+                    }
+
+                    @Override
+                    public void done(ReminderObject returnedUser) {
+                        Log.i("Fire Reminder", "");
                     }
 
                 });

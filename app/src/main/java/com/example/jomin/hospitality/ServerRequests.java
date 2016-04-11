@@ -26,7 +26,7 @@ import java.util.ArrayList;
 public class ServerRequests  extends ActionBarActivity {
     ProgressDialog progressDialog;
     public static final int CONNECTION_TIMEOUT = 1000 * 15;
-    public static final String SERVER_ADDRESS = "http://dcef004e.ngrok.io/hospitality/PHP/";
+    public static final String SERVER_ADDRESS = "http://ee331c30.ngrok.io/hospitality/PHP/";
 
     public ServerRequests(Context context) {
 
@@ -59,6 +59,75 @@ public class ServerRequests  extends ActionBarActivity {
     public void postReminderDataInBackground(ReminderObject r, GetUserCallback userCallBack, String email) {
         progressDialog.show();
         new postReminderDataAsyncTask(r, userCallBack, email).execute();
+    }
+
+    public void getReminders(GetUserCallback userCallBack, String email){
+        progressDialog.show();
+        new getRemindersDataAsyncTask(userCallBack, email).execute();
+    }
+
+    public class getRemindersDataAsyncTask extends AsyncTask<Void, Void, ReminderObject> {
+        ReminderObject obj;
+        GetUserCallback userCallBack;
+        String email;
+
+        public getRemindersDataAsyncTask( GetUserCallback userCallBack, String email) {
+            this.userCallBack = userCallBack;
+            this.email = email;
+            this.obj = obj;
+        }
+
+        @Override
+        protected ReminderObject doInBackground(Void... params) {
+
+
+            HttpParams httpRequestParams = getHttpRequestParams();
+
+            HttpClient client = new DefaultHttpClient(httpRequestParams);
+            HttpGet get = new HttpGet(SERVER_ADDRESS + "appointments.php?email=" + email);
+
+
+
+
+            try {
+                get.setParams(httpRequestParams);
+
+                HttpResponse httpResponse = client.execute(get);
+
+                HttpEntity entity = httpResponse.getEntity();
+                String result = EntityUtils.toString(entity);
+                JSONObject jObject = new JSONObject(result);
+
+                if (jObject.length() != 0){
+                    String type = jObject.getString("type");
+                    String date = jObject.getString("date");
+                    String time = jObject.getString("time");
+
+                    obj = new ReminderObject(type,date,time );
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return obj;
+        }
+
+        private HttpParams getHttpRequestParams() {
+            HttpParams httpRequestParams = new BasicHttpParams();
+            HttpConnectionParams.setConnectionTimeout(httpRequestParams,
+                    CONNECTION_TIMEOUT);
+            HttpConnectionParams.setSoTimeout(httpRequestParams,
+                    CONNECTION_TIMEOUT);
+            return httpRequestParams;
+        }
+
+        @Override
+        protected void onPostExecute(ReminderObject obj) {
+            super.onPostExecute(obj);
+            progressDialog.dismiss();
+            userCallBack.done(obj);
+        }
+
     }
 
     public class getUserProfileDataAsyncTask extends AsyncTask<Void, Void, User> {
@@ -178,7 +247,7 @@ public class ServerRequests  extends ActionBarActivity {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             progressDialog.dismiss();
-            userCallBack.done(null);
+            userCallBack.done();
         }
 
     }
@@ -286,7 +355,7 @@ public class ServerRequests  extends ActionBarActivity {
         @Override
         protected void onPostExecute(Void v) {
             progressDialog.dismiss();
-            userCallBack.done(null);
+            userCallBack.done();
         }
     }
 
@@ -341,7 +410,7 @@ public class ServerRequests  extends ActionBarActivity {
         @Override
         protected void onPostExecute(Void v) {
             progressDialog.dismiss();
-            userCallBack.done(null);
+            userCallBack.done();
         }
     }
 
