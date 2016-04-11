@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
+import cn.pedant.SweetAlert.SweetAlertDialog;
+
 public class Reminder extends ActionBarActivity {
 
     TextView logOut;
@@ -39,8 +41,7 @@ public class Reminder extends ActionBarActivity {
         };
 
         final Spinner s = (Spinner) findViewById(R.id.types);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, arraySpinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item, arraySpinner);
         s.setAdapter(adapter);
 
         final EditText date = (EditText) findViewById(R.id.reminder_date);
@@ -94,24 +95,51 @@ public class Reminder extends ActionBarActivity {
             @Override
             public void onClick(View v) {
 
-                ServerRequests serverRequest = new ServerRequests(Reminder.this);
-                serverRequest.postReminderDataInBackground(new ReminderObject(s.getSelectedItem().toString(), date.getText().toString(), time.getText().toString()), new GetUserCallback() {
-                    @Override
-                    public void done(User returnedUser) {
+                if(date.getText().toString().matches("") || time.getText().toString().matches("")  || s.getSelectedItem() ==null){
 
+                    new SweetAlertDialog(Reminder.this, SweetAlertDialog.ERROR_TYPE)
+                            .setTitleText("Something went wrong...")
+                            .setContentText("You need to enter all fields !!")
+                            .show();
+                } else {
+                    if(date.getText().toString().matches("[0-9]+.*") || time.getText().toString().matches("[0-9]+.*")) {
+                        ServerRequests serverRequest = new ServerRequests(Reminder.this);
+                        serverRequest.postReminderDataInBackground(new ReminderObject(s.getSelectedItem().toString(), date.getText().toString(), time.getText().toString()), new GetUserCallback() {
+                            @Override
+                            public void done(User returnedUser) {
+
+                            }
+
+                            @Override
+                            public void done( List<ReminderObject> returnedUser) {
+
+                            }
+
+                            @Override
+                            public void done() {
+
+                            }
+
+                        }, sp.getString("EMAIL", "not_found"));
+
+                        new SweetAlertDialog(Reminder.this, SweetAlertDialog.SUCCESS_TYPE)
+                                .setTitleText("Successful")
+                                .setContentText("Successfully added on to your appointment")
+                                .setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+                                    @Override
+                                    public void onClick(SweetAlertDialog sweetAlertDialog) {
+                                        Intent intentMain = new Intent(Reminder.this ,MainActivity.class);
+                                        Reminder.this.startActivity(intentMain);
+                                    }
+                                })
+                                .show();
+                    } else {
+                        new SweetAlertDialog(Reminder.this, SweetAlertDialog.ERROR_TYPE)
+                                .setTitleText("Something went wrong...")
+                                .setContentText("Not acceptable format !!")
+                                .show();
                     }
-
-                    @Override
-                    public void done( List<ReminderObject> returnedUser) {
-
-                    }
-
-                    @Override
-                    public void done() {
-
-                    }
-
-                }, sp.getString("EMAIL", "not_found"));
+                }
 
             }
         });
