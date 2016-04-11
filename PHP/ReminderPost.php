@@ -2,8 +2,10 @@
     $con=mysqli_connect("localhost","root","password","hospitality");
 
     $t= $_POST["type"];
+    $d= $_POST["date"];
+    $time= $_POST["time"];
     $e= $_POST["email"];
-   
+    
   
     $statement = mysqli_prepare($con, "SELECT * FROM Users WHERE email = ?");
     mysqli_stmt_bind_param($statement, "s", $e);
@@ -22,11 +24,10 @@
         mysqli_stmt_close($statement);
 
 
-        $var1 = "";
-        $var2 = "";
+        
 
     $statement = mysqli_prepare($con, "INSERT INTO reminder (time, type, user_id, date) VALUES (?, ?, ?, ?)");
-    mysqli_stmt_bind_param($statement, "ssss", $var1, $t, $uid, $var2);
+    mysqli_stmt_bind_param($statement, "ssss", $time, $t, $uid, $d);
     mysqli_stmt_execute($statement);
 
     mysqli_stmt_close($statement);

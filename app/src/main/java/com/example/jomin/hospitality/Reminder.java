@@ -4,17 +4,18 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
-import android.util.Log;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import java.util.List;
-
 
 public class Reminder extends ActionBarActivity {
 
@@ -31,10 +32,7 @@ public class Reminder extends ActionBarActivity {
 
         final SharedPreferences sp = getSharedPreferences("GLOB", MODE_PRIVATE);
 
-        ServerRequests serverRequest = new ServerRequests(Reminder.this);
-
         String[] arraySpinner;
-
 
         arraySpinner = new String[] {
                 "Prescription", "Appointments", "Dentist", "Surgery"
@@ -45,20 +43,59 @@ public class Reminder extends ActionBarActivity {
                 android.R.layout.simple_spinner_item, arraySpinner);
         s.setAdapter(adapter);
 
+        final EditText date = (EditText) findViewById(R.id.reminder_date);
+        final EditText time = (EditText) findViewById(R.id.reminder_time);
 
 
+        date.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                String text = date.getText().toString();
+                if(text.length() == 2 || text.length() == 5){
+                    date.append("/");
+                }
+            }
 
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
 
+            }
 
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+        });
+
+        time.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void afterTextChanged(Editable s) {
+                String text = time.getText().toString();
+                if(text.length() == 2){
+                    time.append(":");
+                }
+            }
+
+            @Override
+            public void beforeTextChanged(CharSequence arg0, int arg1, int arg2, int arg3) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+        });
 
 
         TextView done = (TextView) findViewById(R.id.done);
+
         done.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 ServerRequests serverRequest = new ServerRequests(Reminder.this);
-                serverRequest.postReminderDataInBackground(new ReminderObject(s.getSelectedItem().toString()), new GetUserCallback() {
+                serverRequest.postReminderDataInBackground(new ReminderObject(s.getSelectedItem().toString(), date.getText().toString(), time.getText().toString()), new GetUserCallback() {
                     @Override
                     public void done(User returnedUser) {
 
@@ -66,19 +103,18 @@ public class Reminder extends ActionBarActivity {
 
                     @Override
                     public void done( List<ReminderObject> returnedUser) {
-                        Log.i("Unused", "");
+
                     }
 
                     @Override
                     public void done() {
-                        Log.i("SHOULD BE THIS ONE", "OKAY MARIE");
+
                     }
 
                 }, sp.getString("EMAIL", "not_found"));
 
             }
         });
-
 
         goBack = (LinearLayout)findViewById(R.id.back_button);
 
@@ -89,29 +125,24 @@ public class Reminder extends ActionBarActivity {
                 Reminder.this.startActivity(intentMain);
             }
         });
-
-
     }
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -119,6 +150,5 @@ public class Reminder extends ActionBarActivity {
     public void onBackPressed() {
         return;
     }
-
 
 }

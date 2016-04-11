@@ -410,6 +410,8 @@ public class ServerRequests  extends ActionBarActivity {
         protected Void doInBackground(Void... params) {
             ArrayList<NameValuePair> dataToSend = new ArrayList<>();
             dataToSend.add(new BasicNameValuePair("type", r.type));
+            dataToSend.add(new BasicNameValuePair("date", r.date));
+            dataToSend.add(new BasicNameValuePair("time", r.time));
             dataToSend.add(new BasicNameValuePair("email", email));
 
 

@@ -20,10 +20,11 @@ public class ReminderObject {
         this.id = id;
     }
 
-    public ReminderObject(String type, String date)
+    public ReminderObject(String type, String date, String time)
     {
         this.date = date;
         this.type = type;
+        this.time = time;
     }
 
 
@@ -31,7 +32,5 @@ public class ReminderObject {
     public String toString(){
         return "Type: " + type + "  DATE: " + date + " TIME: " + time;
     }
-
-
 
 }
