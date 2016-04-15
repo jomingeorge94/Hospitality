@@ -122,6 +122,26 @@ public class MainActivity extends FragmentActivity {
             }
         });
 
+        final ImageView usefullinks = (ImageView)findViewById(R.id.useful_links);
+
+        usefullinks.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMain = new Intent(MainActivity.this ,UsefulLinks.class);
+                MainActivity.this.startActivity(intentMain);
+            }
+        });
+
+        final ImageView sendfeedback = (ImageView)findViewById(R.id.sendFeedback);
+
+        sendfeedback.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intentMain = new Intent(MainActivity.this ,Feedback.class);
+                MainActivity.this.startActivity(intentMain);
+            }
+        });
+
 
     }
 

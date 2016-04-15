@@ -1,0 +1,78 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:baselineAligned="false"
+    android:weightSum="1"
+    android:background="@mipmap/background_colour">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="30dp"
+            android:layout_height="31dp"
+            android:weightSum="1"
+            android:id="@+id/back_button"
+            android:background="@drawable/navigation_back"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="10dp">
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Useful Links"
+            android:id="@+id/textView"
+            android:layout_gravity="center_horizontal"
+            android:textSize="30sp"
+            android:fontFamily="sans-serif-thin"
+            android:textColor="#ffffffff"
+            android:textStyle="bold"
+            android:layout_marginLeft="10dp"
+            android:paddingTop="7dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="177dp"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:background="@drawable/useful_links_cover" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/nhs_choices"
+            android:background="@drawable/useful_links_main_pic"
+            android:layout_marginLeft="20dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/first_aid"
+            android:background="@drawable/useful_links_main_pic2"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp" />
+    </LinearLayout>
+
+</LinearLayout>

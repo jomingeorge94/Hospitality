@@ -1,6 +1,7 @@
 package com.example.jomin.hospitality;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
@@ -11,6 +12,7 @@ import android.widget.LinearLayout;
 public class AboutUs extends ActionBarActivity {
     
     LinearLayout goBack;
+    LinearLayout git;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +28,19 @@ public class AboutUs extends ActionBarActivity {
                 AboutUs.this.startActivity(intentMain);
             }
         });
+
+
+        git = (LinearLayout)findViewById(R.id.git_hub);
+
+        git.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent viewIntent = new Intent("android.intent.action.VIEW", Uri.parse("https://github.com/jomingeorge94"));
+                startActivity(viewIntent);
+            }
+        });
+
+
     }
 
     @Override
